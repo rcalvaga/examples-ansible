@@ -1,7 +1,7 @@
 # Here are variables related to the standalone JBoss installation
 
-http_port: 80
-https_port: 443
+http_port: 8080
+https_port: 8443
 mgmt_port: 9990
 
 # AWS specific variables
