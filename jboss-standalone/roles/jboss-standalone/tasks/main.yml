@@ -58,4 +58,5 @@
   with_items:
   - "{{ http_port }}/tcp"
   - "{{ https_port }}/tcp"
+  - "{{ mgmt_port }}/tcp"
 
