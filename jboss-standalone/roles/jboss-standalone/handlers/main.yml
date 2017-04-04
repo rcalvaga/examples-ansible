@@ -4,3 +4,6 @@
 
 - name: restart iptables
   service: name=iptables state=restarted
+  
+- name: restart firewalld
+  service: name=firewalld state=restarted
