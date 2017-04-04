@@ -64,3 +64,10 @@
   - "{{ https_port }}/tcp"
   - "{{ mgmt_port }}/tcp"
 
+- name: redirect 80 port access to 8080 port
+  command: firewall-cmd --permanent --direct --add-rule ipv4 nat PREROUTING 0 -p tcp -m tcp --dport 80 -j REDIRECT --to-ports 8080
+  notify: restart firewalld
+  
+- name: redirect 443 port access to 8443 port
+  command: firewall-cmd --permanent --direct --add-rule ipv4 nat PREROUTING 0 -p tcp -m tcp --dport 443 -j REDIRECT --to-ports 8443
+  notify: restart firewalld
