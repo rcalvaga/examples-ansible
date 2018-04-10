@@ -36,7 +36,19 @@
 
 - name: Copy the init script
   copy: src=jboss-as-standalone.sh dest=/etc/init.d/jboss mode=0755
-
+  
+- name: Add jboss soft line to limits.conf
+  lineinfile:
+    path: /etc/security/limits.conf
+    line: jboss soft nofile 6000
+    insertbefore: '# End of file'
+  
+- name: Add jboss hard line to limits.conf
+  lineinfile:
+    path: /etc/security/limits.conf
+    line: jboss hard nofile 10000
+    insertbefore: '# End of file'
+    
 - name: Workaround for systemd bug
   shell: service jboss start && chkconfig jboss on
 
