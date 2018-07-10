@@ -63,15 +63,15 @@
   service: name=firewalld state=started
   when: ansible_distribution_major_version == "7" 
 
-- name: deploy firewalld rules
-  firewalld: immediate=yes port={{ item }} state=enabled permanent=yes
-  when: ansible_distribution_major_version == "7"
-  with_items:
-  - "{{ http_port }}/tcp"
-  - "{{ https_port }}/tcp"
-  - "{{ mgmt_port }}/tcp"
-  - "80/tcp"
-  - "443/tcp"
+#- name: deploy firewalld rules
+#  firewalld: immediate=yes port={{ item }} state=enabled permanent=yes
+#  when: ansible_distribution_major_version == "7"
+#  with_items:
+#  - "{{ http_port }}/tcp"
+#  - "{{ https_port }}/tcp"
+#  - "{{ mgmt_port }}/tcp"
+#  - "80/tcp"
+#  - "443/tcp"
 
 #- name: redirect 80 port access to {{ http_port }} port
 #  command: firewall-cmd --permanent --direct --add-rule ipv4 nat PREROUTING 0 -p tcp -m tcp --dport 80 -j REDIRECT --to-ports {{ http_port }}
