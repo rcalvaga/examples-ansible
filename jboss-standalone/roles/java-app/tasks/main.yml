@@ -11,5 +11,5 @@
 - name: Deploy Ticket Monster to JBoss
   jboss: deploy_path=/usr/share/jboss-as/standalone/deployments/ src=/tmp/ticket-monster.war deployment=ticket-monster.war state=present
   
-- name: restart jboss
-  service: name=jboss state=restarted
+#- name: restart jboss
+#  service: name=jboss state=restarted
